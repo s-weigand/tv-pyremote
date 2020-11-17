@@ -11,7 +11,11 @@ with open("HISTORY.md") as history_file:
     history = history_file.read()
 
 requirements = [
-    "Click>=7.0",
+    "Flask>=1.1.2",
+    "flask-restx>=0.2.0",
+    "PyAutoGUI>=0.9.52",
+    "qrcode>=6.1 ",
+    "Click>=7.1.2",
 ]
 
 setup_requirements = ["pytest-runner"]
