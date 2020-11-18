@@ -11,7 +11,7 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.7.3
+    rev: v2.7.4
     hooks:
       - id: pyupgrade
         # args: [--py36-plus]
@@ -38,7 +38,7 @@ repos:
       - id: pydocstyle
         exclude: "docs|tests"
   - repo: https://github.com/econchick/interrogate
-    rev: 1.3.1
+    rev: 1.3.2
     hooks:
       - id: interrogate
         args: [-v]
@@ -51,7 +51,7 @@ repos:
         additional_dependencies: [rstcheck, sphinx]
 
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.6.0
+    rev: v1.7.0
     hooks:
       - id: rst-backticks
 
@@ -68,7 +68,7 @@ repos:
       - id: yesqa
 
   - repo: https://github.com/econchick/interrogate
-    rev: 1.3.1
+    rev: 1.3.2
     hooks:
       - id: interrogate
         name: Update interrogate badge
