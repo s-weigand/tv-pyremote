@@ -74,3 +74,6 @@ repos:
         name: Update interrogate badge
         args: [-v, -g, docs/_static]
         exclude: "docs|tests"
+        always_run: true
+        types: [python]
+        stages: [push]
