@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pytv-remote</title>
+  </head>
+  <body>
+    <button>Foo bar</button>
+    <script>
+      const clickSpace = () => {
+        console.log("clicked");
+        fetch(`./api/v1/todos/space`)
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      };
+      document.querySelector("button").addEventListener("click", clickSpace);
+    </script>
+  </body>
+</html>
