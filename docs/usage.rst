@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use tv-remote in a project::
+To use tv-pyremote in a project::
 
-    import tv_remote
+    import tv_pyremote

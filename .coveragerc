@@ -1,10 +1,10 @@
 [run]
 branch = True
-source = tv_remote/*
-include = tv_remote/*
+source = tv_pyremote/*
+include = tv_pyremote/*
 omit = setup.py
-       tv_remote/__init__.py
-       tv_remote/*/__init__.py
+       tv_pyremote/__init__.py
+       tv_pyremote/*/__init__.py
        tests/__init__.py
        */tests/*
 # uncomment the above line if you want to see if all tests did run

@@ -1,7 +1,6 @@
 """Server implementation."""
 from flask import Flask, render_template
-
-from tv_remote.api.v1 import init_api
+from tv_pyremote.api.v1 import init_api
 
 app = Flask(__name__)
 

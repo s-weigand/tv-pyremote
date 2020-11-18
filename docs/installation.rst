@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install tv-remote, run this command in your terminal:
+To install tv-pyremote, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install tv_remote
+    $ pip install tv_pyremote
 
-This is the preferred method to install tv-remote, as it will always install the most recent stable release.
+This is the preferred method to install tv-pyremote, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for tv-remote can be downloaded from the `Github repo`_.
+The sources for ``tv-pyremote`` can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/s-weigand/tv-remote
+    $ git clone git://github.com/s-weigand/tv-pyremote
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/s-weigand/tv-remote/tarball/master
+    $ curl -OJL https://github.com/s-weigand/tv-pyremote/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/s-weigand/tv-remote
-.. _tarball: https://github.com/s-weigand/tv-remote/tarball/master
+.. _Github repo: https://github.com/s-weigand/tv-pyremote
+.. _tarball: https://github.com/s-weigand/tv-pyremote/tarball/master

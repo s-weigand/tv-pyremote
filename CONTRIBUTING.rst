@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/s-weigand/tv-remote/issues.
+Report bugs at https://github.com/s-weigand/tv-pyremote/issues.
 
 If you are reporting a bug, please include:
 
@@ -38,14 +38,14 @@ and "help wanted" is open to whoever wants to implement it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-tv-remote could always use more documentation, whether as part of the
-official tv-remote docs, in docstrings, or even on the web in blog posts,
+tv-pyremote could always use more documentation, whether as part of the
+official tv-pyremote docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/s-weigand/tv-remote/issues.
+The best way to send feedback is to file an issue at https://github.com/s-weigand/tv-pyremote/issues.
 
 If you are proposing a feature:
 
@@ -57,17 +57,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up ``tv_remote`` for local development.
+Ready to contribute? Here's how to set up ``tv_pyremote`` for local development.
 
-1. Fork the ``tv-remote`` repo on GitHub.
+1. Fork the ``tv-pyremote`` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/tv_remote.git
+    $ git clone git@github.com:your_name_here/tv-pyremote.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv tv_remote
-    $ cd tv-remote/
+    $ mkvirtualenv tv_pyremote
+    $ cd tv-pyremote/
     $ pip install -e .
 
 4. install the ``pre-commit`` and ``pre-push`` hooks::
@@ -105,7 +105,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
 3. The pull request should work for Python 3.5, 3.6, 3.7 and 3.8, and for PyPy. Check
-   https://github.com/s-weigand/tv-remote/actions
+   https://github.com/s-weigand/tv-pyremote/actions
    and make sure that the tests pass for all supported Python versions.
 
 Tips
@@ -113,7 +113,7 @@ Tips
 
 To run a subset of tests::
 
-    $ pytest tests.test_tv_remote
+    $ pytest tests.test_tv_pyremote
 
 Deploying
 ---------

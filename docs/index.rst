@@ -1,6 +1,6 @@
-=====================================
-Welcome to tv-remote's documentation!
-=====================================
+=======================================
+Welcome to tv-pyremote's documentation!
+=======================================
 
 .. toctree::
    :maxdepth: 2

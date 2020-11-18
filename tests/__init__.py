@@ -1,1 +1,1 @@
-"""Unit test package for tv_remote."""
+"""Unit test package for tv_pyremote."""

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-"""Tests for `tv_remote` package."""
+"""Tests for `tv_pyremote` package."""
 
 import pytest
 from click.testing import CliRunner
 
-from tv_remote import cli
+from tv_pyremote import cli
 
 
 @pytest.fixture
@@ -29,7 +29,7 @@ def test_command_line_interface():
     runner = CliRunner()
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
-    assert "tv_remote.cli.main" in result.output
+    assert "tv_pyremote.cli.main" in result.output
     help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
     assert "--help  Show this message and exit." in help_result.output
