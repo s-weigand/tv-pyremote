@@ -3,18 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if context.frontend_dev %}
+    <link rel="stylesheet" href="./scss/style.scss" />
+    <script src="./ts/main.ts"></script>
+    {% else %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% endif %}
     <title>pytv-pyremote</title>
   </head>
   <body>
-    <button>Foo bar</button>
-    <script>
-      const clickSpace = () => {
-        console.log("clicked");
-        fetch(`./api/v1/todos/space`)
-          .then((response) => response.json())
-          .then((data) => console.log(data));
-      };
-      document.querySelector("button").addEventListener("click", clickSpace);
-    </script>
+
+    {% if context.frontend_dev %}
+    <div data-dev-port="{{context.dev_port}}"></div>
+    {% endif %}
+    <div class="container">
+      <header><span>tv-pyremote</span> <i class="material-icons">menu</i></header>
+      {% for role in context.roles %}
+      <div class="{{role["role"]}}">
+        <a data-role="{{role["role"]}}">
+          <i class="material-icons">{{role["icon"]}}</i>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
   </body>
 </html>

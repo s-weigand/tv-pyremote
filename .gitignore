@@ -103,3 +103,15 @@ ENV/
 
 # IDE settings
 .vscode/
+
+# Asset built folders
+tv_pyremote/static/css
+tv_pyremote/static/js
+
+# temp built files
+asset_src/dev_page.html
+asset_src/scss/*.css
+asset_src/scss/*.map
+
+# node module folder
+node_modules/

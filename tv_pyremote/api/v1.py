@@ -1,8 +1,8 @@
 """V1 implementation."""
 from flask import Flask
-from flask_restx import Api, Resource, fields
+from flask_restx import Api, Resource, cors, fields
 
-from ..interactions import press_keys
+from ..interactions import map_role, press_keys
 
 
 def init_api(app: Flask) -> None:
@@ -21,7 +21,9 @@ def init_api(app: Flask) -> None:
         description="A simple TodoMVC API",
     )
 
-    ns = api.namespace("api/v1/todos", description="TODO operations")
+    ns = api.namespace(
+        "api/v1/role", description="TODO operations", decorators=[cors.crossdomain(origin="*")]
+    )
 
     todo = api.model(
         "Todo",
@@ -31,62 +33,65 @@ def init_api(app: Flask) -> None:
         },
     )
 
-    class TodoDAO(object):
-        def __init__(self):
-            self.counter = 0
-            self.todos = []
+    # class TodoDAO(object):
+    #     def __init__(self):
+    #         self.counter = 0
+    #         self.todos = []
 
-        def get(self, id):
-            """Retrieve Todos."""
-            for todo in self.todos:
-                if todo["id"] == id:
-                    return todo
-            api.abort(404, "Todo {} doesn't exist".format(id))
+    #     def get(self, id):
+    #         """Retrieve Todos."""
+    #         for todo in self.todos:
+    #             if todo["id"] == id:
+    #                 return todo
+    #         api.abort(404, "Todo {} doesn't exist".format(id))
 
-        def create(self, data):
-            """Create todo.
+    #     def create(self, data):
+    #         """Create todo.
 
-            Parameters
-            ----------
-            data : Dict[str, Any]
-                Sent data.
+    #         Parameters
+    #         ----------
+    #         data : Dict[str, Any]
+    #             Sent data.
 
-            Returns
-            -------
-            Dict[str, Any]
-                [description]
-            """
-            todo = data
-            todo["id"] = self.counter = self.counter + 1
-            self.todos.append(todo)
-            return todo
+    #         Returns
+    #         -------
+    #         Dict[str, Any]
+    #             [description]
+    #         """
+    #         todo = data
+    #         todo["id"] = self.counter = self.counter + 1
+    #         self.todos.append(todo)
+    #         return todo
 
-        def update(self, id, data):
-            todo = self.get(id)
-            todo.update(data)
-            return todo
+    #     def update(self, id, data):
+    #         todo = self.get(id)
+    #         todo.update(data)
+    #         return todo
 
-        def delete(self, id):
-            todo = self.get(id)
-            self.todos.remove(todo)
+    #     def delete(self, id):
+    #         todo = self.get(id)
+    #         self.todos.remove(todo)
 
-    DAO = TodoDAO()
-    DAO.create({"task": "Build an API"})
-    DAO.create({"task": "?????"})
-    DAO.create({"task": "profit!"})
+    # DAO = TodoDAO()
+    # DAO.create({"task": "Build an API"})
+    # DAO.create({"task": "?????"})
+    # DAO.create({"task": "profit!"})
 
-    @ns.route("/<key_str>")
-    @ns.param("key_str", "keys to press")
+    @ns.route("/<role>")
+    @ns.param("role", "keys to press")
     class TodoList(Resource):
         """Shows a list of all todos, and lets you POST to add new tasks."""
 
-        @ns.doc("list_todos")
+        @ns.doc("role")
         # @ns.marshal_list_with(todo)
-        def get(self, key_str):
+        def get(self, role):
             """List all tasks."""
+            print(role)
+            key_str = map_role(role)
             resp = press_keys(key_str)
             print("resp=: ", resp)
             return resp
+            # return {"role": role}
 
         @ns.doc("create_todo")
         @ns.expect(todo)
@@ -98,27 +103,27 @@ def init_api(app: Flask) -> None:
             return resp
             # return DAO.create(api.payload), 201
 
-    @ns.route("/<int:id>")
-    @ns.response(404, "Todo not found")
-    @ns.param("id", "The task identifier")
-    class Todo(Resource):
-        """Show a single todo item and lets you delete them."""
+    # @ns.route("/<int:id>")
+    # @ns.response(404, "Todo not found")
+    # @ns.param("id", "The task identifier")
+    # class Todo(Resource):
+    #     """Show a single todo item and lets you delete them."""
 
-        @ns.doc("get_todo")
-        @ns.marshal_with(todo)
-        def get(self, id):
-            """Fetch a given resource."""
-            return DAO.get(id)
+    #     @ns.doc("get_todo")
+    #     @ns.marshal_with(todo)
+    #     def get(self, id):
+    #         """Fetch a given resource."""
+    #         return DAO.get(id)
 
-        @ns.doc("delete_todo")
-        @ns.response(204, "Todo deleted")
-        def delete(self, id):
-            """Delete a task given its identifier."""
-            DAO.delete(id)
-            return "", 204
+    #     @ns.doc("delete_todo")
+    #     @ns.response(204, "Todo deleted")
+    #     def delete(self, id):
+    #         """Delete a task given its identifier."""
+    #         DAO.delete(id)
+    #         return "", 204
 
-        @ns.expect(todo)
-        @ns.marshal_with(todo)
-        def put(self, id):
-            """Update a task given its identifier."""
-            return DAO.update(id, api.payload)
+    #     @ns.expect(todo)
+    #     @ns.marshal_with(todo)
+    #     def put(self, id):
+    #         """Update a task given its identifier."""
+    #         return DAO.update(id, api.payload)

@@ -4,6 +4,8 @@ from typing import Dict
 
 from pyautogui import KEYBOARD_KEYS, hotkey, press
 
+from .consts import role_mapping
+
 
 def press_keys(key_str: str) -> Dict[str, str]:
     """Press a button on a request.
@@ -31,5 +33,25 @@ def press_keys(key_str: str) -> Dict[str, str]:
             for key in keys:
                 if key not in KEYBOARD_KEYS:
                     failures.append(f"The key {key} is not allowed.")
-            return {"failure": "{'\n'.join(failures)}\nAllowed keys are: {KEYBOARD_KEYS}"}
+            failures_string = "\n".join(failures)
+            return {"failure": f"{failures_string}\nAllowed keys are: {KEYBOARD_KEYS}"}
     return {"failure": f"No Keys to press in: {key_str}"}
+
+
+def map_role(role: str) -> str:
+    """Map role to keybind.
+
+    Parameters
+    ----------
+    role : str
+        Role of the clicked item.
+
+    Returns
+    -------
+    str
+        Keybinding.
+    """
+    for mapped_role in role_mapping:
+        if mapped_role["role"] == role:
+            return mapped_role["keys"]
+    return ""
