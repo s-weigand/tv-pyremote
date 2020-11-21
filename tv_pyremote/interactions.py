@@ -1,5 +1,7 @@
 """Module with the  autogui interactions requested from the app."""
-
+import subprocess
+import sys
+from pathlib import Path
 from typing import Dict
 
 from pyautogui import KEYBOARD_KEYS, hotkey, moveTo, press, size
@@ -45,6 +47,25 @@ def move_cursor() -> Dict[str, str]:
     return {"success": "Moved courser to right corner."}
 
 
+def screen_mute():
+    """Turn off monitor.
+
+    This code was strongly inspired by:
+    https://github.com/arjun024/turn-off-screen
+    """
+    if sys.platform.startswith("linux"):
+        subprocess.run("xset dpms force off")
+
+    elif sys.platform.startswith("win"):
+        script_path = Path(__file__).parent / "turn_off_monitor.bat"
+        subprocess.run(str(script_path), shell=True)
+
+    elif sys.platform.startswith("darwin"):
+        subprocess.run("echo 'tell application \"Finder\" to sleep' | osascript", shell=True)
+
+    return {"success": "Turned off monitor."}
+
+
 def map_role(role: str) -> Dict[str, str]:
     """Map role to keybind.
 
@@ -60,6 +81,8 @@ def map_role(role: str) -> Dict[str, str]:
     """
     if role == "move_curser":
         return move_cursor()
+    elif role == "screen_mute":
+        return screen_mute()
     for mapped_role in role_mapping:
         if mapped_role["role"] == role:
             return press_keys(mapped_role["keys"])
