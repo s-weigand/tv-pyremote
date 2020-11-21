@@ -13,17 +13,25 @@
     />
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% endif %}
+
+    <style>
+    {% for role in context.roles %}
+    .container > div.{{role["role"]}}{
+      grid-area: {{role["role"]}};
+    }
+    {% endfor %}
+    </style>
     <title>pytv-pyremote</title>
   </head>
   <body>
 
     {% if context.frontend_dev %}
-    <div data-dev-port="{{context.dev_port}}"></div>
+    <div class="hidden" data-dev-port="{{context.dev_port}}"></div>
     {% endif %}
     <div class="container">
       <header><span>tv-pyremote</span> <i class="material-icons">menu</i></header>
       {% for role in context.roles %}
-      <div class="{{role["role"]}}">
+      <div class="{{role["role"]}} hidden">
         <a data-role="{{role["role"]}}">
           <i class="material-icons">{{role["icon"]}}</i>
         </a>

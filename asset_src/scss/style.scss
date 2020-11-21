@@ -17,6 +17,15 @@ body {
   max-height: calc(100% - 2rem);
 }
 
+.hidden,
+.container div.hidden {
+  display: none;
+}
+
+i.material-icons {
+  user-select: none;
+}
+
 .container {
   display: grid;
   height: calc(100vh - 1rem);
@@ -33,9 +42,6 @@ body {
     'skip_previous fast_rewind . fast_forward skip_next'
     'fullscreen_exit . . . fullscreen';
   color: rgb(194, 194, 194);
-  i.material-icons {
-    user-select: none;
-  }
   header {
     display: flex;
     justify-content: space-between;
@@ -61,26 +67,10 @@ body {
     text-align: center;
     i {
       font-size: var(--min-fr);
-      user-select: none;
     }
     &.play_pause {
       i {
         font-size: calc(3 * var(--min-fr));
-      }
-    }
-
-    $icons_to_assign: screen_mute, move_curser, volume_mute, volume_up,
-      volume_down, replay_5, forward_5, skip_previous, fast_rewind, play_pause,
-      fast_forward, skip_next, fullscreen_exit, fullscreen;
-    @each $icon_class in $icons_to_assign {
-      &.#{$icon_class} {
-        grid-area: #{$icon_class};
-      }
-    }
-    $icons_to_hide: replay_10, replay_30, forward_10, forward_30;
-    @each $icon_class in $icons_to_hide {
-      &.#{$icon_class} {
-        display: none;
       }
     }
   }
