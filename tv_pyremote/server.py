@@ -8,8 +8,14 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def home():
-    """Render server root."""
+def home() -> str:
+    """Render server root.
+
+    Returns
+    -------
+    str
+        Root website
+    """
     return render_template("index.html", context={"frontend_dev": False, "roles": roles})
 
 

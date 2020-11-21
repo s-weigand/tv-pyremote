@@ -41,7 +41,13 @@ def press_keys(key_str: str) -> Dict[str, str]:
 
 
 def move_cursor() -> Dict[str, str]:
-    """Move courser to right corner."""
+    """Move courser to right corner.
+
+    Returns
+    -------
+    Dict[str, str]
+        Status message
+    """
     x, _ = size()
     moveTo(x, 0)
     return {"success": "Moved courser to right corner."}
@@ -52,6 +58,11 @@ def screen_mute():
 
     This code was strongly inspired by:
     https://github.com/arjun024/turn-off-screen
+
+    Returns
+    -------
+    Dict[str, str]
+        Status message
     """
     if sys.platform.startswith("linux"):
         subprocess.run("xset dpms force off")

@@ -1,8 +1,10 @@
 """V1 implementation."""
-from flask import Flask
-from flask_restx import Api, Resource, cors, fields
+from typing import Dict
 
-from ..interactions import map_role, press_keys
+from flask import Flask
+from flask_restx import Api, Resource, cors
+
+from ..interactions import map_role
 
 
 def init_api(app: Flask) -> None:
@@ -27,13 +29,13 @@ def init_api(app: Flask) -> None:
         decorators=[cors.crossdomain(origin="http://localhost:1234")],
     )
 
-    todo = api.model(
-        "Todo",
-        {
-            "id": fields.Integer(readonly=True, description="The task unique identifier"),
-            "task": fields.String(required=True, description="The task details"),
-        },
-    )
+    # todo = api.model(
+    #     "Todo",
+    #     {
+    #         "id": fields.Integer(readonly=True, description="The task unique identifier"),
+    #         "task": fields.String(required=True, description="The task details"),
+    #     },
+    # )
 
     # class TodoDAO(object):
     #     def __init__(self):
@@ -86,23 +88,34 @@ def init_api(app: Flask) -> None:
 
         @ns.doc("role")
         # @ns.marshal_list_with(todo)
-        def get(self, role):
-            """List all tasks."""
+        def get(self, role: str) -> Dict[str, str]:
+            """Trigger task mapped to role.
+
+            Parameters
+            ----------
+            role : str
+                Role of the control which was clicked.
+
+            Returns
+            -------
+            Dict[str, str]
+                Status message
+            """
             print(role)
             resp = map_role(role)
             print("resp=: ", resp)
             return resp
             # return {"role": role}
 
-        @ns.doc("create_todo")
-        @ns.expect(todo)
-        # @ns.marshal_with(todo, code=201)
-        def post(self, key_str):
-            """Create a new task."""
-            resp = press_keys(key_str)
-            print("resp=: ", resp)
-            return resp
-            # return DAO.create(api.payload), 201
+        # @ns.doc("create_todo")
+        # @ns.expect(todo)
+        # # @ns.marshal_with(todo, code=201)
+        # def post(self, key_str):
+        #     """Create a new task."""
+        #     resp = press_keys(key_str)
+        #     print("resp=: ", resp)
+        #     return resp
+        # return DAO.create(api.payload), 201
 
     # @ns.route("/<int:id>")
     # @ns.response(404, "Todo not found")
