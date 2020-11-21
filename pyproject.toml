@@ -26,3 +26,23 @@ multi_line_output = 3
 [tool.interrogate]
 exclude = ["setup.py", "docs", "tests"]
 ignore-init-module = true
+
+[tool.curlylint]
+include = '\.(html|jinja)$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+)/
+'''
+
+[tool.curlylint.rules]
+html_has_lang = 'en'
+meta_viewport = true
