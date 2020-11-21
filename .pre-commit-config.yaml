@@ -24,9 +24,9 @@ repos:
     rev: v2.1.2 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
-        exclude: 'tv_pyremote/templates/index.html'
+        exclude: tv_pyremote/templates/index.html
   - repo: https://github.com/thibaudcolas/curlylint
-    rev: 'main' # select a tag / sha to point at
+    rev: main # select a tag / sha to point at
     hooks:
       - id: curlylint
   - repo: https://gitlab.com/pycqa/flake8
@@ -41,13 +41,13 @@ repos:
     rev: v0.790
     hooks:
       - id: mypy
-        exclude: 'docs'
+        exclude: ^docs
 
   - repo: https://github.com/PyCQA/pydocstyle
     rev: 5.1.1
     hooks:
       - id: pydocstyle
-        exclude: 'docs|tests'
+        exclude: ^(docs|tests)
   - repo: https://github.com/terrencepreilly/darglint
     rev: v1.5.5
     hooks:
@@ -57,9 +57,9 @@ repos:
     hooks:
       - id: interrogate
         args: [-v]
-        exclude: 'docs|tests'
+        exclude: ^(docs|tests)
   - repo: https://github.com/myint/rstcheck
-    rev: '3f92957478422df87bd730abde66f089cc1ee19b'
+    rev: 3f92957478422df87bd730abde66f089cc1ee19b
     hooks:
       - id: rstcheck
         additional_dependencies: [rstcheck, sphinx]
@@ -73,7 +73,7 @@ repos:
     rev: v1.17.1
     hooks:
       - id: codespell
-        files: '.py|.rst'
+        files: (.py|.rst)$
         args: [-L nnumber]
 
   - repo: https://github.com/asottile/yesqa
@@ -87,7 +87,7 @@ repos:
       - id: interrogate
         name: Update interrogate badge
         args: [-v, -g, docs/_static]
-        exclude: 'docs|tests'
+        exclude: ^(docs|tests)
         always_run: true
         types: [python]
         stages: [push]
