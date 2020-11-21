@@ -25,7 +25,7 @@ body {
   grid-template-areas:
     'header header header header header'
     'screen_mute . volume_mute . volume_up'
-    '. . . . volume_down'
+    'move_curser . . . volume_down'
     'replay_5 play_pause play_pause play_pause forward_5'
     'replay_5 play_pause play_pause play_pause forward_5'
     'replay_5 play_pause play_pause play_pause forward_5'
@@ -69,9 +69,9 @@ body {
       }
     }
 
-    $icons_to_assign: screen_mute, volume_mute, volume_up, volume_down, replay_5,
-      forward_5, skip_previous, fast_rewind, play_pause, fast_forward, skip_next,
-      fullscreen_exit, fullscreen;
+    $icons_to_assign: screen_mute, move_curser, volume_mute, volume_up,
+      volume_down, replay_5, forward_5, skip_previous, fast_rewind, play_pause,
+      fast_forward, skip_next, fullscreen_exit, fullscreen;
     @each $icon_class in $icons_to_assign {
       &.#{$icon_class} {
         grid-area: #{$icon_class};

@@ -2,7 +2,7 @@
 
 from typing import Dict
 
-from pyautogui import KEYBOARD_KEYS, hotkey, press
+from pyautogui import KEYBOARD_KEYS, hotkey, moveTo, press, size
 
 from .consts import role_mapping
 
@@ -38,7 +38,14 @@ def press_keys(key_str: str) -> Dict[str, str]:
     return {"failure": f"No Keys to press in: {key_str}"}
 
 
-def map_role(role: str) -> str:
+def move_cursor() -> Dict[str, str]:
+    """Move courser to right corner."""
+    x, _ = size()
+    moveTo(x, 0)
+    return {"success": "Moved courser to right corner."}
+
+
+def map_role(role: str) -> Dict[str, str]:
     """Map role to keybind.
 
     Parameters
@@ -51,7 +58,9 @@ def map_role(role: str) -> str:
     str
         Keybinding.
     """
+    if role == "move_curser":
+        return move_cursor()
     for mapped_role in role_mapping:
         if mapped_role["role"] == role:
-            return mapped_role["keys"]
-    return ""
+            return press_keys(mapped_role["keys"])
+    return {"failure": f"Unknown role: {role}"}

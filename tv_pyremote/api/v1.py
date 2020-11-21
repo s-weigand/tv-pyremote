@@ -22,7 +22,9 @@ def init_api(app: Flask) -> None:
     )
 
     ns = api.namespace(
-        "api/v1/role", description="TODO operations", decorators=[cors.crossdomain(origin="*")]
+        "api/v1/role",
+        description="TODO operations",
+        decorators=[cors.crossdomain(origin="http://localhost:1234")],
     )
 
     todo = api.model(
@@ -87,8 +89,7 @@ def init_api(app: Flask) -> None:
         def get(self, role):
             """List all tasks."""
             print(role)
-            key_str = map_role(role)
-            resp = press_keys(key_str)
+            resp = map_role(role)
             print("resp=: ", resp)
             return resp
             # return {"role": role}

@@ -20,6 +20,7 @@ roles = (
     {"role": "skip_previous", "icon": "skip_previous"},
     {"role": "fast_forward", "icon": "fast_forward"},
     {"role": "fast_rewind", "icon": "fast_rewind"},
+    {"role": "move_curser", "icon": "near_me"},
 )
 
 role_mapping = (
