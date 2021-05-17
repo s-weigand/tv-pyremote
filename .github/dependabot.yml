@@ -7,7 +7,7 @@ updates:
       time: '04:00'
     open-pull-requests-limit: 10
     reviewers:
-      - { { cookiecutter.github_username } }
+      - s-weigand
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: 'github-actions'
     directory: '/'
