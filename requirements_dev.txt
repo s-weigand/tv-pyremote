@@ -9,7 +9,7 @@ Flask==1.1.2
 flask-restx==0.2.0
 PyAutoGUI==0.9.52
 qrcode==6.1
-Click==7.1.2
+Click==8.0.0
 
 
 # quality asurence
