@@ -2,7 +2,6 @@
   "name": "tv-pyremote",
   "version": "1.0.0",
   "description": "Frontend src for ty-pyremote",
-  "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
@@ -10,8 +9,8 @@
   "scripts": {
     "publish": "run-s clean build",
     "build": "run-s build:css build:js",
-    "build:css": "parcel build --no-cache asset_src/scss/style.scss --out-file style.css -d tv_pyremote/static/css --no-source-maps --public-url ./",
-    "build:js": "parcel build --no-cache asset_src/ts/main.ts --out-file main.js -d tv_pyremote/static/js --no-source-maps --public-url ./",
+    "build:css": "parcel build --no-cache asset_src/scss/style.scss --dist-dir tv_pyremote/static/css --no-source-maps --public-url ./",
+    "build:js": "parcel build --no-cache asset_src/ts/main.ts --dist-dir tv_pyremote/static/js --no-source-maps --public-url ./",
     "watch:css": "parcel asset_src/dev_page.html",
     "update": "run-s update:template_render",
     "update:template_render": "npx python asset_src/utils/render_template.py",
@@ -36,11 +35,12 @@
   },
   "homepage": "https://github.com/s-weigand/tv-pyremote#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
     "material-design-icons": "^3.0.1",
     "material-design-icons-iconfont": "^6.1.0",
     "materialize-css": "^1.0.0-rc.2",
     "npm-run-all": "^4.1.5",
-    "parcel": "^1.12.4",
+    "parcel": "^2.0.0-beta.2",
     "rimraf": "^3.0.2",
     "sass": "^1.29.0",
     "tslint": "^6.1.3",

@@ -115,3 +115,6 @@ asset_src/scss/*.map
 
 # node module folder
 node_modules/
+
+# parcel cache
+.parcel-cache
