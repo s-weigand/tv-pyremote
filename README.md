@@ -8,7 +8,7 @@
 
 [![Actions Status](https://github.com/s-weigand/tv-pyremote/workflows/Tests/badge.svg)](https://github.com/s-weigand/tv-pyremote/actions)
 [![Documentation Status](https://readthedocs.org/projects/tv-pyremote/badge/?version=latest)](https://tv-pyremote.readthedocs.io/en/latest/?badge=latest)
-[![codecov](https://codecov.io/gh/s-weigand/tv-pyremote/branch/master/graph/badge.svg)](https://codecov.io/gh/s-weigand/tv-pyremote)
+[![codecov](https://codecov.io/gh/s-weigand/tv-pyremote/branch/main/graph/badge.svg?token=F0Zz6yD44o)](https://codecov.io/gh/s-weigand/tv-pyremote)
 
 [![All Contributors](https://img.shields.io/github/all-contributors/s-weigand/tv-pyremote)](#contributors)
 [![Code style Python: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)

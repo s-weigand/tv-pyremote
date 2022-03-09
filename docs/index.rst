@@ -9,7 +9,7 @@ Welcome to tv-pyremote's documentation!
    readme
    installation
    usage
-   modules
+   api_documentation
    contributing
    history
 

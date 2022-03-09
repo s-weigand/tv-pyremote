@@ -53,6 +53,7 @@ source_suffix = [".rst", ".md"]
 linkcheck_ignore = [
     r"https://github\.com/s-weigand/tv-pyremote/actions",
     r"https://github\.com/s-weigand/tv-pyremote/workflows/Tests/badge\.svg",
+    r"https://codecov\.io/gh/.*",
 ]
 
 # The master toctree document.
