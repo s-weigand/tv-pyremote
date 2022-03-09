@@ -3,8 +3,20 @@ updates:
   - package-ecosystem: pip
     directory: '/'
     schedule:
-      interval: daily
-      time: '04:00'
+      interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Europe/Amsterdam
+    open-pull-requests-limit: 10
+    reviewers:
+      - s-weigand
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Europe/Amsterdam
     open-pull-requests-limit: 10
     reviewers:
       - s-weigand
@@ -12,4 +24,7 @@ updates:
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Europe/Amsterdam
