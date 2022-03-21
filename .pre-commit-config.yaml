@@ -21,7 +21,7 @@ repos:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.5.1 # Use the sha or tag you want to point at
+    rev: v2.6.0 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
         exclude: tv_pyremote/templates/index.html
@@ -38,7 +38,7 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.940
+    rev: v0.941
     hooks:
       - id: mypy
         exclude: ^docs
