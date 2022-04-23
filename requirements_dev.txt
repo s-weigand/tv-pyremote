@@ -5,7 +5,7 @@ wheel>=0.33.6
 # runtime requirements
 # pinned so the bot can create PRs to test with new versions
 
-Flask==2.0.3
+Flask==2.1.1
 flask-restx==0.5.1
 PyAutoGUI==0.9.53
 qrcode==7.3.1
