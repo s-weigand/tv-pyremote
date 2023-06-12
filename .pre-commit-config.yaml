@@ -11,7 +11,7 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.4.0
+    rev: v3.6.0
     hooks:
       - id: pyupgrade
         # args: [--py36-plus]
@@ -39,7 +39,7 @@ repos:
       - id: curlylint
 
   - repo: https://github.com/asottile/yesqa
-    rev: v1.4.0
+    rev: v1.5.0
     hooks:
       - id: yesqa
 
